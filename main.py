@@ -34,16 +34,19 @@ if __name__ == "__main__":
 
     print(f"Se leerán las palabras del fichero {filename}")
     file_path = os.path.join(".", filename)
+    #Realizamos la carga del archivo desde el archivo local
     if os.path.isfile(file_path):
         word_list = []
         with open(file_path, "r") as file:
             for line in file:
                 word_list.append(line.strip())
     else:
+        #Al no cargar el archivo, mostramos mensajes
         print(f"El fichero {filename} no existe")
         word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff"]
 
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
 
+    #Imprimimos el listado cargado
     print(sort_list(word_list))
